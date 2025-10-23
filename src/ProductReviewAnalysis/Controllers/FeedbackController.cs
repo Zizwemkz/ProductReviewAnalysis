@@ -17,15 +17,15 @@ namespace ProductReviewAnalysis.Controllers
             _logger = logger;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] FeedbackRequestDto dto)
+        [HttpPost("feedback")]
+        public async Task<ActionResult> Create([FromBody] FeedbackRequestDto dto)
         {
             if (!ModelState.IsValid) return BadRequest(new { error = "Invalid payload" });
 
             try
             {
-                var created = await _feedbackService.CreateAsync(dto);
-                return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+                var result = await _feedbackService.CreateAsync(dto);
+                return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
             }
             catch (ArgumentException ex)
             {
@@ -35,18 +35,19 @@ namespace ProductReviewAnalysis.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] int page = 1, [FromQuery] int pageSize = 20, [FromQuery] string? sentiment = null, [FromQuery] string? tag = null)
+        public async Task<ActionResult> GetAll([FromQuery] int page = 1, [FromQuery] int pageSize = 20, [FromQuery] string? sentiment = null, [FromQuery] string? tag = null)
         {
             var result = await _feedbackService.GetPagedAsync(page, pageSize, sentiment, tag);
             return Ok(result);
         }
 
         [HttpGet("{id:guid}")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<ActionResult> GetById(Guid id)
         {
-            var found = await _feedbackService.GetByIdAsync(id);
-            if (found == null) return NotFound();
-            return Ok(found);
+            if (id == Guid.Empty) return BadRequest(new { error = "Invalid ID" });
+            var result = await _feedbackService.GetByIdAsync(id);
+            if (result == null) return NotFound();
+            return Ok(result);
         }
     }
 }
