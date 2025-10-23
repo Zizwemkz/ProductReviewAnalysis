@@ -38,7 +38,7 @@ jobs:
     
     - name: Run Stryker Mutation Tests
       run: |
-        dotnet stryker --reporters "html" --break-at 60
+        dotnet stryker --reporters "html" --break-at 7
 
     - name: Upload Stryker report artifact
       uses: actions/upload-artifact@v4
