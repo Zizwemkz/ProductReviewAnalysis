@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductReviewAnalysis", "ProductReviewAnalysis\ProductReviewAnalysis.csproj", "{6183C7F5-11FF-4989-AFF2-CAEF6B8B9AAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6183C7F5-11FF-4989-AFF2-CAEF6B8B9AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6183C7F5-11FF-4989-AFF2-CAEF6B8B9AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6183C7F5-11FF-4989-AFF2-CAEF6B8B9AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6183C7F5-11FF-4989-AFF2-CAEF6B8B9AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77C66179-FF95-4FEB-B79F-4F12CAB42F77}
+	EndGlobalSection
+EndGlobal
