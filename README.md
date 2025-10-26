@@ -1,6 +1,6 @@
 <div align="center">
   <h1>
-      🛍️ Product Review Analysis
+       Product Review Analysis
   </h1>
   <p>
     A Layered architected .NET application designed to analyze customer product reviews. The is also OpenAI intergration - extract insights, and provide sentiment analysis reports. Built using Layered Architecture principles for scalability, testability, and maintainability.
@@ -57,9 +57,9 @@ ProductReviewAnalysis/
 
 ---
 
-# 🚀 Getting Started
+#  Getting Started
 
-## ✅ Prerequisites
+## Prerequisites
 
 - [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 - SQLite (installed locally or via EF Core provider)
@@ -68,7 +68,7 @@ ProductReviewAnalysis/
 
 ---
 
-## ⚙️ Setup Steps
+## Setup Steps
 
 1. **Clone the Repository**
    ```bash
