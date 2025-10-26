@@ -3,8 +3,8 @@
       🛍️ Product Review Analysis
   </h1>
   <p>
-    A Layered architected .NET application designed to analyze customer product reviews, extract insights, and provide sentiment analysis reports. <br/>
-    Built using Layered Architecture principles for scalability, testability, and maintainability.<br/><br/>
+    A Layered architected .NET application designed to analyze customer product reviews. The is also OpenAI intergration - extract insights, and provide sentiment analysis reports. Built using Layered Architecture principles for scalability, testability, and maintainability.
+    <br/><br/>
     This project demonstrates UserInput-driven design, repository-service-controller layering, and integrated testing with NUnit and Stryker for mutation test coverage.
   </p>
 </div>
@@ -24,7 +24,7 @@
 ---
 
 # Project Structure
-
+```bash
 ProductReviewAnalysis/
 │
 ├── ProductReviewAnalysis.Domain/ # Entities, Value Objects, Interfaces
@@ -52,7 +52,7 @@ ProductReviewAnalysis/
 │ └── ControllerTests/
 │
 └── README.md
-
+```
 
 
 ---
@@ -113,3 +113,8 @@ ProductReviewAnalysis/
     | POST	      |/api/reviews	            | Submit a new review
     | GET	      |/api/analysis/{productId}| Get sentiment analysis for a product
     ```
+
+
+##     Application Design
+
+![Design diagrame](./designAnalysis/Componentdiagrame.png)</a>
