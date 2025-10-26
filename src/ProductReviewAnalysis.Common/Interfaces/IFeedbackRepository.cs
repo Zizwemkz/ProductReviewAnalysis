@@ -7,6 +7,5 @@ namespace ProductReviewAnalysis.Common.Interfaces
         Task<Feedback> AddAsync(Feedback item);
         Task<Feedback?> GetByIdAsync(Guid id);
         Task<(IEnumerable<Feedback> Items, int TotalCount)> GetPagedAsync(int page, int pageSize, string? sentiment, string? tag);
-
     }
 }
