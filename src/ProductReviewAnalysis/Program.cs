@@ -14,6 +14,16 @@ var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("DefaultConnection")
                        ?? "Data Source=productreviews.db";
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // Services
 builder.Services.AddControllers().AddJsonOptions(opts =>
 {
@@ -31,14 +41,14 @@ builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
 builder.Services.AddScoped<IFeedbackService, FeedbackService>();
 
 // Analyzer (AI stub) - replace with a real LLM client implementation later
-builder.Services.AddSingleton<ITextAnalyzer, SimpleTextAnalyzer>();
+builder.Services.AddSingleton<IOpenAITextAnalyzer, OpenAITextAnalyzer>();
 
 var app = builder.Build();
 
 // Middleware pipeline
 app.UseMiddleware<RequestLoggingMiddleware>();
 app.UseMiddleware<ErrorHandlingMiddleware>();
-
+app.UseCors("AllowFrontend");
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

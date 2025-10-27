@@ -5,7 +5,7 @@ using ProductReviewAnalysis.Common.Interfaces;
 namespace ProductReviewAnalysis.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api")]
     public class FeedbackController : ControllerBase
     {
         private readonly IFeedbackService _feedbackService;
@@ -35,7 +35,7 @@ namespace ProductReviewAnalysis.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAll([FromQuery] int page = 1, [FromQuery] int pageSize = 20, [FromQuery] string? sentiment = null, [FromQuery] string? tag = null)
+        public async Task<ActionResult> GetAll([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] string? sentiment = null, [FromQuery] string? tag = null)
         {
             var result = await _feedbackService.GetPagedAsync(page, pageSize, sentiment, tag);
             return Ok(result);

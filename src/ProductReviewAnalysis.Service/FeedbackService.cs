@@ -3,18 +3,19 @@ using ProductReviewAnalysis.Common.Dtos.Response;
 using ProductReviewAnalysis.Common.Interfaces;
 using ProductReviewAnalysis.Data.Models;
 using Microsoft.Extensions.Logging;
+using ProductReviewAnalysis.Service.AI;
 
 namespace ProductReviewAnalysis.Service
 {
     public class FeedbackService : IFeedbackService
     {
         private readonly IFeedbackRepository _repository;
-        private readonly ITextAnalyzer _analyzer;
+        private readonly IOpenAITextAnalyzer _analyzer;
         private readonly ILogger<FeedbackService> _logger;
 
         public FeedbackService(
             IFeedbackRepository repo,
-            ITextAnalyzer analyzer,
+            IOpenAITextAnalyzer analyzer,
             ILogger<FeedbackService> logger)
         {
             _repository = repo ?? throw new ArgumentNullException(nameof(repo));
@@ -32,7 +33,7 @@ namespace ProductReviewAnalysis.Service
                 _logger.LogInformation("Starting feedback analysis for new entry...");
 
                 // Analyze text with AI
-                var analysis = _analyzer.Analyze(createDto.Text);
+                var analysis = await (_analyzer as OpenAITextAnalyzer)?.AnalyzeAsync(createDto.Text)!;
 
                 // Map
                 var model = new Feedback

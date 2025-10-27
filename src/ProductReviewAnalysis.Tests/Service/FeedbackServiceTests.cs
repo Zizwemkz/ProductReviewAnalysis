@@ -17,17 +17,17 @@ namespace ProductReviewAnalysis.Tests.Service
     public class FeedbackServiceTests
     {
         private Mock<IFeedbackRepository> _repoMock = null!;
-        private Mock<ITextAnalyzer> _analyzerMock = null!;
+        private Mock<IOpenAITextAnalyzer> _analyzerMock = null!;
         private Mock<ILogger<FeedbackService>> _loggerMock = null!;
         private FeedbackService _service = null!;
        [SetUp]
 public void Setup()
 {
     _repoMock = new Mock<IFeedbackRepository>();
-    _analyzerMock = new Mock<ITextAnalyzer>();
+    _analyzerMock = new Mock<IOpenAITextAnalyzer>();
     _loggerMock = new Mock<ILogger<FeedbackService>>();
-    _analyzerMock.Setup(a => a.Analyze(It.IsAny<string>())).Returns(
-        new AnalysisDto
+    _analyzerMock.Setup(a => a.AnalyzeAsync(It.IsAny<string>())).ReturnsAsync(
+         new AnalysisDto
         {
             Summary = "Summary",
             Sentiment = "positive",

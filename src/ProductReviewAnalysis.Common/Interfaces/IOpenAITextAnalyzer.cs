@@ -2,8 +2,8 @@
 
 namespace ProductReviewAnalysis.Common.Interfaces
 {
-    public interface ITextAnalyzer
+    public interface IOpenAITextAnalyzer
     {
-        public AnalysisDto Analyze(string text);
+        public Task<AnalysisDto> AnalyzeAsync(string text);
     }
 }

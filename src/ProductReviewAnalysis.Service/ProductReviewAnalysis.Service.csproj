@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mscc.GenerativeAI" Version="2.8.19" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ProductReviewAnalysis.Common\ProductReviewAnalysis.Common.csproj" />
   </ItemGroup>
 

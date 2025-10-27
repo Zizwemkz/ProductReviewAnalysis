@@ -1,6 +1,6 @@
 <div align="center">
   <h1>
-       Product Review Analysis
+       Product Review Analysis BACK END
   </h1>
   <p>
     A Layered architected .NET application designed to analyze customer product reviews. The is also OpenAI intergration - extract insights, and provide sentiment analysis reports. Built using Layered Architecture principles for scalability, testability, and maintainability.
@@ -27,24 +27,28 @@
 ```bash
 ProductReviewAnalysis/
 │
-├── ProductReviewAnalysis.Domain/ # Entities, Value Objects, Interfaces
-│ ├── Models/
-│ ├── Enums/
-│ └── Interfaces/
-│
-├── ProductReviewAnalysis.Application/ # Business logic, DTOs, and Services
-│ ├── Services/
-│ └── DTOs/
-│
-├── ProductReviewAnalysis.Infrastructure/ # EF Core setup, DbContext, Repositories
-│ ├── Database/
-│ ├── Repositories/
-│ └── Config/
-│
-├── ProductReviewAnalysis.API/ # ASP.NET Core Web API controllers
+├── ProductReviewAnalysis.Api/ # ASP.NET Core Web API controllers,  Services
 │ ├── Controllers/
 │ ├── Program.cs
 │ └── appsettings.json
+│ 
+│
+├── ProductReviewAnalysis.Common/ # Interfaces  and  DTOs
+│ ├
+│ └── Interfaces/
+│ └── DTOs/
+|
+│── ProductReviewAnalysis.Daya/ # Entities, EF Core setup, and DbContext
+│ ├
+│ └── Database/
+│ └── Models/
+|
+├── ProductReviewAnalysis.Repository/ # Repositories
+│ ├── Repositories/
+│ └── Config/
+│
+├── ProductReviewAnalysis.Service/ # Business logic,Services
+│ ├── Services/
 │
 ├── ProductReviewAnalysis.Tests/ # NUnit test projects
 │ ├── RepositoryTests/
@@ -108,10 +112,9 @@ ProductReviewAnalysis/
 
     ```bash
     | HTTP Method |	Endpoint	            |    Description
-    | GET	      |/api/products            | Fetch all products
-    | GET	      |/api/reviews/{productId} | Get product reviews
-    | POST	      |/api/reviews	            | Submit a new review
-    | GET	      |/api/analysis/{productId}| Get sentiment analysis for a product
+    | GET	      |/api                     | Fetch all reviews
+    | GET	      |/api/{id}                | Get review by Id
+    | POST	      |/api/feedack	            | Submit a new review
     ```
 
 
